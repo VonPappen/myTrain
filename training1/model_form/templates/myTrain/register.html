@@ -1,0 +1,16 @@
+{% extends "myTrain/base.html" %}
+
+{% block body_block %}
+    
+    {% if not registered %}
+    <H2>Welcome to the registration page</H2>
+    <form action="" method = "POST">
+        {{ user_form.as_p }}
+        {{ website.as_p }}
+        {% csrf_token %}
+    <input type="submit">
+    </form>
+    {% else %}
+    <h2>Thanks for registering! You May now <a href="{% url "myTrain:login" %}">login</a style ="color: green">!</h2>
+    {% endif %}
+{% endblock %}
